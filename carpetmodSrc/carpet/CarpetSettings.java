@@ -43,7 +43,7 @@ public class CarpetSettings
     public static boolean locked = false;
 
     // TODO: replace these constants at build time
-    public static final String carpetVersion = "v19_12_24";
+    public static final String carpetVersion = "v19_12_24_HipogriffSMP";
     public static final String minecraftVersion = "1.12.2";
     public static final String mcpMappings = "39-1.12";
 
@@ -55,6 +55,15 @@ public class CarpetSettings
     /*
      * Rules in this category should start with the "command" prefix
      */
+
+    @Rule(desc = "Enables /location command for locate players and places.", category = COMMANDS)
+    public static boolean commandLocation = true;
+
+    @Rule(desc = "Enables infinite trades uses.", category = FEATURE)
+    public static boolean infiniteTrades = false;
+
+    @Rule(desc = "Enables /center command.", category = COMMANDS)
+    public static boolean commandCenter = false;
 
     @Rule(desc = "Enables /spawn command for spawn tracking", category = COMMANDS)
     public static boolean commandSpawn = true;
