@@ -1,0 +1,1 @@
+gradlew genPatches createRelease
