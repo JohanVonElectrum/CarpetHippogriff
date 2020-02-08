@@ -57,7 +57,7 @@ public class CarpetSettings
      */
 
     @Rule(desc = "Enables /location command for locate players and places.", category = COMMANDS)
-    public static boolean commandLocation = true;
+    public static boolean commandLocation = false;
 
     @Rule(desc = "Enables infinite trades uses.", category = FEATURE)
     public static boolean infiniteTrades = false;
