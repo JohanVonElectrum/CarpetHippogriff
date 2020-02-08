@@ -27,6 +27,7 @@ public class CommandCenter extends CommandCarpetBase
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+        if (!command_enabled("commandCenter", sender)) return;
         BlockPos center = new BlockPos(0, 0, 0);
         int[] dp = new int[] {0, 0, 0};
         boolean valid = false;
