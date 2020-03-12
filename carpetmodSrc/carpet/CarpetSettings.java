@@ -65,6 +65,9 @@ public class CarpetSettings
     @Rule(desc = "Enables /center command.", category = COMMANDS)
     public static boolean commandCenter = false;
 
+    @Rule(desc = "Enables /gateway command for calculate end gateway area.", category = COMMANDS)
+    public static boolean commandGateway = false;
+
     @Rule(desc = "Enables /spawn command for spawn tracking", category = COMMANDS)
     public static boolean commandSpawn = true;
 

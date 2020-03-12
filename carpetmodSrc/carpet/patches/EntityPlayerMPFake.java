@@ -29,6 +29,8 @@ public class EntityPlayerMPFake extends EntityPlayerMP
     private float setYaw;
     private float setPitch;
 
+    public boolean immortal = false;
+
     public static EntityPlayerMPFake createFake(String username, MinecraftServer server, double x, double y, double z, double yaw, double pitch, int dimension, int gamemode)
     {
         WorldServer worldIn = server.getWorld(dimension);

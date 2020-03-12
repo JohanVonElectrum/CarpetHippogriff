@@ -8,6 +8,8 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 
@@ -190,6 +192,14 @@ public class CommandPlayer extends CommandCarpetBase
                 throw new WrongUsageException("use /kill or /kick on regular players");
             }
             player.onKillCommand();
+            return;
+        }
+        if ("immortal".equalsIgnoreCase(action))
+        {
+            if (!(player instanceof EntityPlayerMPFake))
+            {
+                throw new WrongUsageException("Only bots can be immortal.");
+            }
             return;
         }
         if ("shadow".equalsIgnoreCase(action))

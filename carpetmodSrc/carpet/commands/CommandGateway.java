@@ -9,6 +9,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.biome.BiomeCache;
 
@@ -37,6 +38,17 @@ public class CommandGateway extends CommandCarpetBase
             BlockPos min = VectorHelper.get_prolongation(Double.parseDouble(args[0]), m, 768, new BlockPos(0, 0, 0));
             BlockPos max = VectorHelper.get_prolongation(Double.parseDouble(args[0]), m, 1280, new BlockPos(0, 0, 0));
             sender.sendMessage(new TextComponentString("You have to build between " + min.getX() + "/" + min.getZ() + " and " + max.getX() + "/" + max.getZ()));
+            ChunkPos tmpChunk = new ChunkPos(0, 0);
+            String chunks = "";
+            for (int i = 768; i <= 1280; i++) {
+                BlockPos tmp = VectorHelper.get_prolongation(Double.parseDouble(args[0]), m, i, new BlockPos(0, 0, 0));
+                ChunkPos tmpCh = new ChunkPos(tmp.getX() / 16, tmp.getZ() / 16);
+                if (tmpChunk.x != tmpCh.x || tmpChunk.z != tmpCh.z) {
+                    tmpChunk = tmpCh;
+                    chunks += chunks.length() > 0 ? ", [" + tmpChunk.x + ", " + tmpChunk.z +"]" : "[" + tmpChunk.x + ", " + tmpChunk.z +"]";
+                }
+            }
+            sender.sendMessage(new TextComponentString("Chunk Array: " + chunks));
         }
         catch (NumberFormatException nfe)
         {
