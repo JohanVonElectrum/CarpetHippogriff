@@ -1,6 +1,24 @@
 --- ../src-base/minecraft/net/minecraft/tileentity/TileEntityEndGateway.java
 +++ ../src-work/minecraft/net/minecraft/tileentity/TileEntityEndGateway.java
-@@ -205,6 +205,8 @@
+@@ -3,6 +3,8 @@
+ import java.util.List;
+ import java.util.Random;
+ import javax.annotation.Nullable;
++
++import carpet.CarpetSettings;
+ import net.minecraft.block.state.IBlockState;
+ import net.minecraft.entity.Entity;
+ import net.minecraft.init.Blocks;
+@@ -99,7 +101,7 @@
+ 
+     public boolean func_184310_d()
+     {
+-        return this.field_184316_g > 0;
++        return CarpetSettings.gatewayNoCooldown ? false : this.field_184316_g > 0;
+     }
+ 
+     @Nullable
+@@ -205,6 +207,8 @@
      {
          BlockPos blockpos = null;
  
@@ -9,7 +27,7 @@
          for (int i = -p_184308_2_; i <= p_184308_2_; ++i)
          {
              for (int j = -p_184308_2_; j <= p_184308_2_; ++j)
-@@ -225,6 +227,7 @@
+@@ -225,6 +229,7 @@
                  }
              }
          }

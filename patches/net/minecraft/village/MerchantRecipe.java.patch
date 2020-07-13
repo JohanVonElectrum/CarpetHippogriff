@@ -7,13 +7,11 @@
  import net.minecraft.item.Item;
  import net.minecraft.item.ItemStack;
  import net.minecraft.nbt.NBTTagCompound;
-@@ -91,7 +92,8 @@
+@@ -91,6 +92,7 @@
  
      public boolean func_82784_g()
      {
--        return this.field_77400_d >= this.field_82786_e;
-+        if (CarpetSettings.infiniteTrades) this.field_77400_d = 0;
-+        return this.field_77400_d >= this.field_82786_e && !CarpetSettings.infiniteTrades;
++        if (CarpetSettings.infiniteTrades) return false;
+         return this.field_77400_d >= this.field_82786_e;
      }
  
-     public boolean func_180322_j()

@@ -56,16 +56,25 @@ public class CarpetSettings
      * Rules in this category should start with the "command" prefix
      */
 
-    @Rule(desc = "Enables /location command for locate players and places.", category = COMMANDS)
+    @Rule(desc = "Entities teleports instantly through EndGateways", category = FEATURE)
+    public static boolean gatewayNoCooldown = false;
+
+    @Rule(desc = "Enables /http command to perform http requests", category = COMMANDS)
+    public static boolean commandHttp = false;
+
+    @Rule(desc = "Enables /helper command for helpful stuff", category = COMMANDS)
+    public static boolean commandHelper = false;
+
+    @Rule(desc = "Enables /location command for locate players and places", category = COMMANDS)
     public static boolean commandLocation = false;
 
-    @Rule(desc = "Enables infinite trades uses.", category = FEATURE)
+    @Rule(desc = "Enables infinite trades uses", category = FEATURE)
     public static boolean infiniteTrades = false;
 
-    @Rule(desc = "Enables /center command.", category = COMMANDS)
+    @Rule(desc = "Enables /center command", category = COMMANDS)
     public static boolean commandCenter = false;
 
-    @Rule(desc = "Enables /gateway command for calculate end gateway area.", category = COMMANDS)
+    @Rule(desc = "Enables /gateway command for calculate end gateway area", category = COMMANDS)
     public static boolean commandGateway = false;
 
     @Rule(desc = "Enables /spawn command for spawn tracking", category = COMMANDS)

@@ -127,6 +127,15 @@
      }
  
      @Nullable
+@@ -553,7 +596,7 @@
+ 
+     public void func_70933_a(MerchantRecipe p_70933_1_)
+     {
+-        p_70933_1_.func_77399_f();
++        if (CarpetSettings.infiniteTrades) p_70933_1_.func_77399_f();
+         this.field_70757_a = -this.func_70627_aG();
+         this.func_184185_a(SoundEvents.field_187915_go, this.func_70599_aP(), this.func_70647_i());
+         int i = 3 + this.field_70146_Z.nextInt(4);
 @@ -608,6 +651,17 @@
          {
              this.func_175554_cu();
