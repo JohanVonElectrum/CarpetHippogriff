@@ -56,6 +56,12 @@ public class CarpetSettings
      * Rules in this category should start with the "command" prefix
      */
 
+    @Rule(desc = "Block drops spawns at player if sneaking", category = SURVIVAL)
+    public static boolean safeMining = false;
+
+    @Rule(desc = "Enable enderpearls colliding with TNT", category = FEATURE)
+    public static boolean enderpearlTntCollision = true;
+
     @Rule(desc = "Entities teleports instantly through EndGateways", category = FEATURE)
     public static boolean gatewayNoCooldown = false;
 
@@ -76,6 +82,11 @@ public class CarpetSettings
 
     @Rule(desc = "Enables /gateway command for calculate end gateway area", category = COMMANDS)
     public static boolean commandGateway = false;
+
+    // ===== COMMANDS ===== //
+    /*
+     * Rules in this category should start with the "command" prefix
+     */
 
     @Rule(desc = "Enables /spawn command for spawn tracking", category = COMMANDS)
     public static boolean commandSpawn = true;
