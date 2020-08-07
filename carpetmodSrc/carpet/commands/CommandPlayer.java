@@ -15,11 +15,7 @@ import net.minecraft.util.math.BlockPos;
 
 import javax.annotation.Nullable;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -27,6 +23,9 @@ import org.apache.commons.lang3.ArrayUtils;
 
 public class CommandPlayer extends CommandCarpetBase
 {
+
+    private static final ArrayList<String> availableNames = new ArrayList<String>();
+
     /**
      * Gets the name of the command
      */
@@ -43,7 +42,7 @@ public class CommandPlayer extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "player <spawn|kill|stop|drop|swapHands|mount|dismount> <player_name>  OR /player <use|attack|jump> <player_name> <once|continuous|interval.. ticks>";
+        return "player <spawn|kill|stop|drop|swapHands|mount|dismount|add> <player_name>  OR /player <use|attack|jump> <player_name> <once|continuous|interval.. ticks>";
     }
 
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
@@ -137,6 +136,15 @@ public class CommandPlayer extends CommandCarpetBase
             {
                 throw new WrongUsageException("player names can only be 3 to 16 chars long");
             }
+            boolean available = false;
+            for (String availableName: availableNames) {
+                if (availableName.equalsIgnoreCase(playerName)) {
+                    available = true;
+                    break;
+                }
+            }
+            if (!available) throw new WrongUsageException("player " + playerName + " not available");
+
             Vec3d vec3d = sender.getPositionVector();
             double d0 = vec3d.x;
             double d1 = vec3d.y;

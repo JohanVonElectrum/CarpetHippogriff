@@ -9,7 +9,21 @@
  public class BlockShulkerBox extends BlockContainer
  {
      public static final PropertyEnum<EnumFacing> field_190957_a = PropertyDirection.func_177714_a("facing");
-@@ -176,7 +178,7 @@
+@@ -135,8 +137,13 @@
+         return this.func_176223_P().func_177226_a(field_190957_a, enumfacing);
+     }
+ 
++    private boolean safeMined = false;
++    private BlockPos safeMinedPos = null;
+     public void func_176208_a(World p_176208_1_, BlockPos p_176208_2_, IBlockState p_176208_3_, EntityPlayer p_176208_4_)
+     {
++        safeMined = CarpetSettings.safeMining && p_176208_4_.func_70093_af();
++        if (safeMined) safeMinedPos = p_176208_4_.func_180425_c();
++
+         if (p_176208_1_.func_175625_s(p_176208_2_) instanceof TileEntityShulkerBox)
+         {
+             TileEntityShulkerBox tileentityshulkerbox = (TileEntityShulkerBox)p_176208_1_.func_175625_s(p_176208_2_);
+@@ -176,7 +183,7 @@
                  NBTTagCompound nbttagcompound = new NBTTagCompound();
                  NBTTagCompound nbttagcompound1 = new NBTTagCompound();
                  nbttagcompound.func_74782_a("BlockEntityTag", ((TileEntityShulkerBox)tileentity).func_190580_f(nbttagcompound1));
@@ -18,3 +32,12 @@
  
                  if (tileentityshulkerbox.func_145818_k_())
                  {
+@@ -184,7 +191,7 @@
+                     tileentityshulkerbox.func_190575_a("");
+                 }
+ 
+-                func_180635_a(p_180663_1_, p_180663_2_, itemstack);
++                spawnAsEntity(p_180663_1_, safeMined ? safeMinedPos : p_180663_2_, itemstack, safeMined);
+             }
+ 
+             p_180663_1_.func_175666_e(p_180663_2_, p_180663_3_.func_177230_c());
