@@ -136,14 +136,14 @@ public class CommandPlayer extends CommandCarpetBase
             {
                 throw new WrongUsageException("player names can only be 3 to 16 chars long");
             }
-            boolean available = false;
+            /*boolean available = false;
             for (String availableName: availableNames) {
                 if (availableName.equalsIgnoreCase(playerName)) {
                     available = true;
                     break;
                 }
             }
-            if (!available) throw new WrongUsageException("player " + playerName + " not available");
+            if (!available) throw new WrongUsageException("player " + playerName + " not available");*/ //TODO: LIST available names modify at runtime
 
             Vec3d vec3d = sender.getPositionVector();
             double d0 = vec3d.x;
@@ -206,7 +206,7 @@ public class CommandPlayer extends CommandCarpetBase
         {
             if (!(player instanceof EntityPlayerMPFake))
             {
-                throw new WrongUsageException("Only bots can be immortal.");
+                throw new WrongUsageException("Only bots can be immortal."); //TODO: DO IT
             }
             return;
         }
